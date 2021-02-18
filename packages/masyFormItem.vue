@@ -40,7 +40,7 @@ export default {
     line-height: 40px;
     position: relative;
     font-size: 14px;
-    overflow: hidde;
+    overflow: hidden;
   }
 }
 </style>
