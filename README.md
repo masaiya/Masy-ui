@@ -366,4 +366,31 @@ export default {
 | dist\masy-ui.common.js  | 124.55 KiB | 27.26 KiB |
 | dist\masy-ui.css        | 38.57 KiB  | 8.71 KiB  |
 
- 
+ （6）如果你还希望自己的ui组件库可以上传到npm，作为一个公共的ui组件库，请继续往下看。
+
+- 首先，修改 package.json 中的属性 private 为false ，这样这个ui组件库才不是私有的，才能上传到 npm 上。
+
+  ` "private": false`
+
+- 其次，向 package.json 中添加一个下载组件库的入口文件 
+
+  `"main": "dist/masy-ui.umd.min.js"`
+
+- 然后，在根目录下创建一个 .npmignore ，在改文件中可以选择那些文件不被npm上传
+
+  ```
+  # 忽略目录
+  examples/
+  packages/
+  public/
+  # 忽略指定文件
+  vue.config.js
+  babel.config.js
+  *.map
+  ```
+
+- 注册 npm 并登录
+
+- npm login
+
+- npm publish
