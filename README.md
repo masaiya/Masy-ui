@@ -159,3 +159,19 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 （6）Radio-group组件
 
 用来包裹 Radio 组件，v-model双向绑定到 radio-group 上。
+
+要实现把v-model绑定到radio-group上，但是值要传递到radio中，这里采用provide/inject，在radio-group中直接把整个radio-group传递过去，让radio可以直接操控radio-group。以此来获取radio-group接收到的value值。
+
+参数支持：
+
+| 参数名称 | 参数描述     | 参数类型 | 默认值 |
+| -------- | ------------ | -------- | ------ |
+| v-model  | 双向数据绑定 |          | null   |
+
+
+
+在这里，我封装的效果是，既可以单独使用radio(要给同组每一个radio都双向绑定参数)，也可以把radio放在radio-group中使用(只需要给radio-group双向绑定参数即可)。
+
+（7）Checkbox组件
+
+（8）CheckboxGroup组件

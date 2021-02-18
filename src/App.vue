@@ -12,7 +12,13 @@
       <masy-radio label="1">男</masy-radio>
       <masy-radio label="0">女</masy-radio>
     </masy-radio-group> -->
-    <masy-checkbox></masy-checkbox>
+    <masy-checkbox v-model="active">唱歌</masy-checkbox>
+
+    <masy-checkbox-group v-model="hobby">
+      <masy-checkbox label="吃饭">吃饭</masy-checkbox>
+      <masy-checkbox label="睡觉">睡觉</masy-checkbox>
+      <masy-checkbox label="打豆豆">打豆豆</masy-checkbox>
+    </masy-checkbox-group>
   </div>
 </template>
 
@@ -26,6 +32,7 @@ export default {
       password: '',
       active: false,
       gender: '1',
+      hobby: ['睡觉'],
     };
   },
   methods: {
