@@ -1,27 +1,74 @@
 # masy-ui
 
-## Project setup
-```
-npm install
-```
+这是一个基于 vue-cli3，参考了 element-ui 封装的一个 前端ui组件库。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 使用方法
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. 初始化 vue 项目
 
-### Lints and fixes files
-```
-npm run lint
-```
+   ` vue create demo`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+2. 安装 masy-ui 组件库
+
+   `npm install masy-ui -g`
+
+3. 全局导入
+
+   `import MasyUI from 'masy-ui'`
+
+   `import 'masy-ui/lib/masy-ui.css'`
+
+   `Vue.use(MasyUI)`
+
+4. 使用组件 
+
+    这里演示了 masy-form，masy-form-item，masy-switch，masy-input等组件的基础使用。
+
+   ```javascript
+   <template>
+     <div id="app">
+       <masy-form :model="model" label-width="90px">
+         <masy-form-item label="用户名">
+           <masy-input placeholder="请输入用户名" v-model="model.username"></masy-input>
+         </masy-form-item>
+         <masy-form-item label="选择">
+           <masy-switch v-model="model.active" active-color="green"></masy-switch>
+         </masy-form-item>
+         <masy-form-item label="爱好">
+           <masy-checkbox-group v-model="model.hobby">
+             <masy-checkbox label="吃饭">吃饭</masy-checkbox>
+             <masy-checkbox label="睡觉">睡觉</masy-checkbox>
+             <masy-checkbox label="打豆豆">打豆豆</masy-checkbox>
+           </masy-checkbox-group>
+         </masy-form-item>
+         <masy-form-item label="性别">
+           <masy-radio-group v-model="model.gender">
+             <masy-radio label="1">男</masy-radio>
+             <masy-radio label="2">女</masy-radio>
+           </masy-radio-group>
+         </masy-form-item>
+       </masy-form>
+     </div>
+   </template>
+   
+   <script>
+   export default {
+     name: 'App',
+     data() {
+       return {
+         model: {
+           username: '',
+           active: false,
+           hobby: [],
+           gender: null,
+         },
+       };
+     },
+     methods: {
+     },
+   };
+   </script>
+   ```
 
 ### 封装UI组件步骤
 
@@ -309,3 +356,14 @@ export default {
  }
 
 其中 packages/index.js 是我需要打包到的目录。
+
+（5）打包成功 出现类似于如下显示即是打包成功。
+
+| File                    | Size       | Gzipped   |
+| ----------------------- | ---------- | --------- |
+| dist\masy-ui.umd.min.js | 34.12 KiB  | 11.52 KiB |
+| dist\masy-ui.umd.js     | 124.93 KiB | 27.40 KiB |
+| dist\masy-ui.common.js  | 124.55 KiB | 27.26 KiB |
+| dist\masy-ui.css        | 38.57 KiB  | 8.71 KiB  |
+
+ 
